@@ -1,0 +1,4 @@
+username = new FormControl('', [
+  Validators.required,
+  Validators.minLength(3)
+]);
