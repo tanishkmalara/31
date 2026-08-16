@@ -1,0 +1,34 @@
+import { Component } from '@angular/core';
+import {
+  ReactiveFormsModule,
+  FormGroup,
+  FormControl,
+  Validators
+} from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [ReactiveFormsModule],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+
+  userForm = new FormGroup({
+
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3)
+    ]),
+
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ])
+
+  });
+
+  submitForm() {
+    console.log(this.userForm.value);
+  }
+}
